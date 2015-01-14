@@ -27,6 +27,7 @@ gulp.task('subtree', function () {
 ## Options
 
 Options can be passed into subtree to choose the remote, branch, and message to push with. By default, it's `origin`, `gh-pages`, and `'Distribution Commit'`.
+By default gulp subtree creates a temporary commit to pick up any generated files.  Use the skipCommit flag if you wish to skip this.
 
 ```js
 var subtree = require('gulp-subtree');
@@ -37,7 +38,8 @@ gulp.task('subtree', function () {
     .pipe(subtree({
       remote: 'upstream',
       branch: 'master',
-      message: 'Here We Go!'
+      message: 'Here We Go!',
+      skipCommit: false
     }))
     .pipe(clean());
 });
