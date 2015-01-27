@@ -36,7 +36,7 @@ module.exports = function (options) {
     //////////////////////////////
     var deployFinish = function () {
       gutil.log('Pushing ' + chalk.magenta(folder) + ' to ' + chalk.cyan(remote) + '/' + chalk.cyan(branch));
-      execute('git subtree push --prefix ' + folder + ' ' + remote + ' ' + branch, function () {
+      execute('git subtree push -f --prefix ' + folder + ' ' + remote + ' ' + branch, function () {
         if (!skipCommit) {
           gutil.log('Resetting ' + chalk.magenta(folder) + ' temporary commit');
           execute('git reset HEAD^', function () {
